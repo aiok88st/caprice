@@ -1,0 +1,270 @@
+{extend name="common/index" /}
+
+{block name="main"}
+<div id="banner">
+	<div class="swiper-container swiper-container-main">
+		<div class="swiper-wrapper">
+
+			{volist name='top' id='v1'}
+			<div class="swiper-slide">
+				<img src="__PUBLIC__/{$v1["pic"]}" />
+			</div>
+			{/volist}
+
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+</div>
+<div id="aboutUs">
+	<div class="container aboutUs">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
+				<div class="auBanner">
+					<div class="swiper-container swiper-container-au">
+						<div class="swiper-wrapper">
+							{volist name='about' id='v2'}
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/{$v2["pic"]}" />
+							</div>
+							{/volist}
+
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-0">
+				<div class="usContent">
+					<div class="usTitle">
+						<p>about us</p>
+						<img src="__HOME__/img/usTitle.png" class="img-responsive"/>
+					</div>
+					<div class="usName">
+						<p>{$v2["name"]}</p>
+						<p></p>
+					</div>
+					<div class="usDetails">
+						<p>{$v2["content"]}</p>
+					</div>
+					<div>
+						<a class="lookMore" href="###">See More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img src="__HOME__/img/auBkg.png" />
+	</div>
+</div>
+<div id="serve">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4">
+				<div class="serBox">
+					<ul>
+						<li>
+							<img src="__HOME__/img/oem.png" class="img-responsive" />
+						</li>
+						<li>
+							<a href="###">OEM&#38;ODM</a>
+							<span></span>
+						</li>
+						<li>
+							<p>Capriccio with technical design and development of professional staff, has accumulated years of production and operation of OEM and ODM processing experience.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4">
+				<div class="serBox">
+					<ul>
+						<li>
+							<img src="__HOME__/img/person.png" class="img-responsive"/>
+						</li>
+						<li>
+							<a href="###">Personalized customization service</a>
+							<span></span>
+						</li>
+						<li>
+							<p>Capriccio can meet all your business needs, for your custom is personalized products, you can buy any of the products you need in capriccio.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4">
+				<div class="serBox">
+					<ul>
+						<li>
+							<img src="__HOME__/img/manage.png" class="img-responsive"/>
+						</li>
+						<li>
+							<a href="###">OEM&#38;ODM</a>
+							<span></span>
+						</li>
+						<li>
+							<p>Capriccio has advanced production system, inventory control system, ensure the stability of supply, the full range of products inventory sufficient, no MOQ requirement.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="produce">
+	<div class="proTitle">
+		<ul>
+			<li>
+				<p>Products</p>
+			</li>
+			<li>
+				<img src="__HOME__/img/proCenter.png" class="center-block img-responsive"/>
+			</li>
+		</ul>
+	</div>
+	<div class="proNavBox">
+		<div class="proNav" align="center">
+			<ul>
+				<li>
+					<a href="javascript:;" onclick="changeproduct('')" class="proNavActive" >whole</a>
+				</li>
+				{volist name='productNav' id='v3'}
+				<li>
+					<a href="javascript:;" onclick="changeproduct('{$v3.id}')">{$v3["catname"]}</a>
+				</li>
+				{/volist}
+
+			</ul>
+		</div>
+	</div>
+	<div class="proList">
+		<div class="container">
+			<div class="row" id="proListRow">
+				{volist name='pArr' id='v4'}
+				<div class="col-xs-6 col-sm-4 col-md-4">
+					<div class="picBox">
+						<img src="__PUBLIC__/{$v4["thumb"]}" class="img-responsive"/>
+						<div class="picOn">
+							<p>{$v4["title"]}</p>
+							<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>
+						</div>
+					</div>
+				</div>
+				{/volist}
+			</div>
+		</div>
+		<div class="proMore">
+			<a class="lookMore" href="{:url('home/products2/index')}?catid=21">See More</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function changeproduct(id){
+		$.ajax({
+			url:"product2/id="+id,
+			type:"post",
+			data:{"id":id},
+			dataType:"json",
+			success:function(re){
+				productList = re;
+				var html="";
+				for(item in productList){
+					html +='<div class="col-xs-6 col-sm-4 col-md-4">';
+					html +='<div class="picBox">';
+					html +='<img src="__PUBLIC__/'+productList[item].thumb+'" class="img-responsive"/>';
+					html +='<div class="picOn">';
+					html +='<p>'+productList[item].title+'</p>';
+					html +='<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>';
+					html +='</div></div></div>';
+				}
+				$('#proListRow').html(html);
+			}
+		});
+	}
+</script>
+
+<div id="meeting">
+	<div class="mtTitle">
+		<ul>
+			<li>
+				<p>Previous exhibitions</p>
+			</li>
+			<li>
+				<img src="__HOME__/img/meeting.png" class="img-responsive center-block"/>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="mtPicShow">
+		<div class="container">
+			<div class="row">
+
+				{volist name='artArr' id='v5'}
+				<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+					<div class="mtPicBox">
+						<a href="{:url('Exhibition2/detail2',array('id'=>$v5['id']))}" target="_blank" ><img src="__PUBLIC__/{$v5["thumb"]}" class="img-responsive" /></a>
+						<div class="mtOn">
+							<div class="floatl">
+								<div class="mtBorder">
+									{volist name="v5.time" id="v" key="k"}
+									<ul>
+										<li>
+											{if condition="$k eq 3"}<p>{$v}</p>{/if}
+										</li>
+										<li>
+											{if condition="$k eq 2"}
+											<p>
+												{switch name="$v" }
+												{case value="01"}Jan.{/case}
+												{case value="02"}Feb.{/case}
+												{case value="03"}Mar.{/case}
+												{case value="04"}Apr.{/case}
+												{case value="05"}May.{/case}
+												{case value="06"}Jun.{/case}
+												{case value="07"}Jul.{/case}
+												{case value="08"}Aug.{/case}
+												{case value="09"}Sep.{/case}
+												{case value="10"}Oct.{/case}
+												{case value="11"}Nov.{/case}
+												{default /}Dec.
+												{/switch}
+											</p>
+											{/if}
+										</li>
+
+									</ul>
+									{/volist}
+								</div>
+							</div>
+							<div class="floatl">
+								<ul>
+									<li>
+										<p><nobr>{$v5["title"]}</nobr></p>
+									</li>
+									<li>
+										<p>{$v5["contentdes"]}</p>
+									</li>
+								</ul>
+							</div>
+							<div class="clearl"></div>
+						</div>
+					</div>
+				</div>
+				{/volist}
+
+			</div>
+		</div>
+	</div>
+
+	<div class="mtMore">
+		<a class="lookMore" href="{:url('home/exhibition2/index')}?catid=23">See More</a>
+	</div>
+</div>
+{/block}
+
+{block name="footer"}
+{include file="public2/footer" /}
+{/block}
+
+

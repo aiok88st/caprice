@@ -1,0 +1,87 @@
+{extend name="common/index" /}
+{block name="headers"}
+<link rel="stylesheet" href="__HOME__/css/product.css" />
+{/block}
+{block name="main"}
+
+<div style="height: 50px;"></div>
+<div id="banner1">
+    <img src="__PUBLIC__/{$top.pic}" />
+</div>
+<div id="produce">
+    <div class="proTitle">
+        <ul>
+            <li>
+                <p>Products</p>
+            </li>
+            <li>
+                <img src="__HOME__/img/proCenter.png" class="center-block img-responsive"/>
+            </li>
+        </ul>
+    </div>
+    <div class="proNavBox">
+        <div class="proNav" align="center">
+            <ul>
+                <li>
+                    <a href="javascript:;" onclick="changeproduct('')" class="proNavActive" >whole</a>
+                </li>
+                {volist name="productNav" id="vo"}
+                <li>
+                    <a href="javascript:;" onclick="changeproduct('{$vo.id}')">{$vo["catname"]}</a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <div class="proList">
+        <div class="container">
+            <div class="row" id="proListRow">
+
+                {volist name="data" id="v1"}
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="picBox">
+                        <img src="__PUBLIC__/{$v1["thumb"]}" class="img-responsive"/>
+                        <div class="picOn">
+                            <p>{$v1["title"]}</p>
+                            <a href="###"><img src="__HOME__/img/right.png"  class="center-block"/></a>
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+
+            </div>
+        </div>
+    </div>
+    <div class="page" align="center">
+        {$page}
+    </div>
+    <script type="text/javascript">
+        function changeproduct(id){
+            $.ajax({
+                url:"products2/id="+id,
+                type:"post",
+                data:{"id":id},
+                dataType:"json",
+                success:function(re){
+                    productList = re.list;
+                    var html="";
+                    for(item in productList){
+                        html +='<div class="col-xs-6 col-sm-4 col-md-4">';
+                        html +='<div class="picBox">';
+                        html +='<img src="__PUBLIC__/'+productList[item].thumb+'" class="img-responsive"/>';
+                        html +='<div class="picOn">';
+                        html +='<p>'+productList[item].title+'</p>';
+                        html +='<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>';
+                        html +='</div></div></div>';
+                    }
+                    $('#proListRow').html(html);
+                }
+            });
+        }
+    </script>
+</div>
+{/block}
+
+{block name="footer"}
+{include file="public2/footer2" /}
+{/block}
