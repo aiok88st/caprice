@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\wamp\www\caprice/app/home\view\index2\index.html";i:1506846013;s:51:"F:\wamp\www\caprice/app/home\view\common\index.html";i:1506846205;s:53:"F:\wamp\www\caprice/app/home\view\public2\footer.html";i:1506846898;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\wamp\www\caprice/app/home\view\index2\index.html";i:1506849724;s:51:"F:\wamp\www\caprice/app/home\view\common\index.html";i:1506846205;s:53:"F:\wamp\www\caprice/app/home\view\public2\footer.html";i:1506846898;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -230,7 +230,7 @@
 					html +='<img src="__PUBLIC__/'+productList[item].thumb+'" class="img-responsive"/>';
 					html +='<div class="picOn">';
 					html +='<p>'+productList[item].title+'</p>';
-					html +='<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>';
+					html +='<a target="_blank" href="<?php echo url("products2/productDetails"); ?>?catid=21&id='+productList[item].id+'"><img src="__HOME__/img/right.png"  class="center-block"/></a>';
 					html +='</div></div></div>';
 				}
 				$('#proListRow').html(html);

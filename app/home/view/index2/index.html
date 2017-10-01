@@ -174,7 +174,7 @@
 					html +='<img src="__PUBLIC__/'+productList[item].thumb+'" class="img-responsive"/>';
 					html +='<div class="picOn">';
 					html +='<p>'+productList[item].title+'</p>';
-					html +='<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>';
+					html +='<a target="_blank" href="{:url("products2/productDetails")}?catid=21&id='+productList[item].id+'"><img src="__HOME__/img/right.png"  class="center-block"/></a>';
 					html +='</div></div></div>';
 				}
 				$('#proListRow').html(html);
