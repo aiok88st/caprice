@@ -10,8 +10,8 @@
                         <div class="floatl">
                             <p>{$sArr["name"]}</p>
                             <ul>
-                                <li class="contact">
-                                    <a href="###"><img src="__HOME__/img/qq.png"/></a>
+                                <li class="contact" id="qq">
+                                    <a href="###"><img src="__HOME__/img/qq.png" /></a>
                                 </li>
                                 <li class="contact" style="position: relative;">
                                     <div class="wechatBox">
@@ -19,8 +19,8 @@
                                     </div>
                                     <a href="###"><img src="__HOME__/img/wechat.png"/></a>
                                 </li>
-                                <li class="contact">
-                                    <a href="###"><img src="__HOME__/img/weibo.png"/></a>
+                                <li class="contact" id="wb">
+                                    <a href="###"><img src="__HOME__/img/weibo.png" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -65,5 +65,18 @@
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/js/index.js" ></script>
+<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#qq").mouseover(function(){
+            layer.msg('该功能暂未开放');
+        });
+
+        $("#wb").mouseover(function(){
+            layer.msg('该功能暂未开放');
+        })
+
+    })
+</script>
 </body>
 </html>

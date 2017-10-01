@@ -17,6 +17,7 @@ Route::get([
     'shop2'=>'home/Shop2/index',//英文版
     'contact2'=>'home/Contact2/index',//英文版
     'products2'=>'home/Products2/index',//英文版
+    'about2'=>'home/about2/index',//英文版
 ]);
 Route::post([
     'product2/:catId' => 'home/index2/product',//首页产品中心(英文版)

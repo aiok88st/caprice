@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\wamp\www\caprice/app/home\view\index2\index.html";i:1506783800;s:51:"F:\wamp\www\caprice/app/home\view\common\index.html";i:1506774386;s:53:"F:\wamp\www\caprice/app/home\view\public2\footer.html";i:1506693701;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\wamp\www\caprice/app/home\view\index2\index.html";i:1506846013;s:51:"F:\wamp\www\caprice/app/home\view\common\index.html";i:1506846205;s:53:"F:\wamp\www\caprice/app/home\view\public2\footer.html";i:1506846898;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +44,7 @@
                         <li><a href="<?php echo url($vo['url']); ?>?catid=<?php echo $vo['id']; ?>" <?php if($catid == $vo['id']): ?>class="activeNav"<?php endif; ?>><p><?php echo $vo["catname"]; ?><span></span></p></a></li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                     <li>
-                        <a href="index"><p>中文版<span></span></p></a>
+                        <a href="<?php echo url('home/index/index'); ?>"><p>中文版<span></span></p></a>
                     </li>
                     <li id="lastNav">
                         <input id="searchBox" type="text" placeholder="content" class="flaotr"/>
@@ -105,7 +105,7 @@
 						<p><?php echo $v2["content"]; ?></p>
 					</div>
 					<div>
-						<a class="lookMore" href="###">See More</a>
+						<a class="lookMore" href="<?php echo url('home/about2/index'); ?>?catid=22">See More</a>
 					</div>
 				</div>
 			</div>
@@ -202,7 +202,7 @@
 						<img src="__PUBLIC__/<?php echo $v4["thumb"]; ?>" class="img-responsive"/>
 						<div class="picOn">
 							<p><?php echo $v4["title"]; ?></p>
-							<a href=""><img src="__HOME__/img/right.png"  class="center-block"/></a>
+							<a target="_blank" href="<?php echo url('products2/productDetails'); ?>?catid=21&id=<?php echo $v4['id']; ?>"><img src="__HOME__/img/right.png"  class="center-block"/></a>
 						</div>
 					</div>
 				</div>
@@ -319,8 +319,8 @@
                         <div class="floatl">
                             <p><?php echo $sArr["name"]; ?></p>
                             <ul>
-                                <li class="contact">
-                                    <a href="###"><img src="__HOME__/img/qq.png"/></a>
+                                <li class="contact" id="qq">
+                                    <a href="###"><img src="__HOME__/img/qq.png" /></a>
                                 </li>
                                 <li class="contact" style="position: relative;">
                                     <div class="wechatBox">
@@ -328,8 +328,8 @@
                                     </div>
                                     <a href="###"><img src="__HOME__/img/wechat.png"/></a>
                                 </li>
-                                <li class="contact">
-                                    <a href="###"><img src="__HOME__/img/weibo.png"/></a>
+                                <li class="contact" id="wb">
+                                    <a href="###"><img src="__HOME__/img/weibo.png" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -374,5 +374,18 @@
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/js/index.js" ></script>
+<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#qq").mouseover(function(){
+            layer.msg('该功能暂未开放');
+        });
+
+        $("#wb").mouseover(function(){
+            layer.msg('该功能暂未开放');
+        })
+
+    })
+</script>
 </body>
 </html>

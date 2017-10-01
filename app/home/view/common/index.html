@@ -43,7 +43,7 @@
                         <li><a href="{$vo['url']|url}?catid={$vo['id']}" {if condition="$catid eq $vo['id']"}class="activeNav"{/if}><p>{$vo["catname"]}<span></span></p></a></li>
                     {/volist}
                     <li>
-                        <a href="index"><p>中文版<span></span></p></a>
+                        <a href="{:url('home/index/index')}"><p>中文版<span></span></p></a>
                     </li>
                     <li id="lastNav">
                         <input id="searchBox" type="text" placeholder="content" class="flaotr"/>

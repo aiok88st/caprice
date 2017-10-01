@@ -9,5 +9,6 @@ return array (
   'enarticle' => 9,
   'enproduct' => 12,
   'enpicture' => 14,
+  'parameter' => 16,
 );
 ?>

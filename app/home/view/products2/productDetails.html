@@ -1,0 +1,95 @@
+{extend name="common/index" /}
+{block name="headers"}
+<link rel="stylesheet" href="__HOME__/css/productDetails.css" />
+{/block}
+{block name="main"}
+		<div style="height: 50px;"></div>
+		<div id="proShow">
+			<div class="" style="height: 50px;">
+
+			</div>
+			<div class="container" style="position: relative;">
+				<div class="row">
+					<div class="col-xs-6 col-sm-7">
+						<img src="__PUBLIC__/{$list.thumb}" class="img-responsive center-block" />
+					</div>
+					<div class="rightContent col-xs-6 col-sm-5">
+						<ul>
+							<li>
+								<p>{$list.title}</p>
+							</li>
+							<li>
+								<p>{$list.subtitle}</p>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="types">
+					<ul>
+						<li>
+							<a href="###" class="typeActive"><img src="__PUBLIC__/{$list.thumb}" width="65px" height="60px"/></a>
+						</li>
+						<li>
+							<a href="###"><img src="__PUBLIC__/{$list.thumb}" width="65px" height="60px"/></a>
+						</li>
+						<li>
+							<a href="###"><img src="__PUBLIC__/{$list.thumb}" width="65px" height="60px"/></a>
+						</li>
+						<li>
+							<a href="###"><img src="__PUBLIC__/{$list.thumb}" width="65px" height="60px"/></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="produce">
+			<div class="proTitle">
+				<p>-Product parameter-</p>
+			</div>
+			<div class="container sizeBox">
+				{$list.parameter}
+				<div class="clearl"></div>
+			</div>
+			<div class="proTitle">
+				<p>-product details-</p>
+			</div>
+			<div class="container">
+				<div class="proBoxes">
+					<ul>
+						{volist name="images" id="vo"}
+						<li>
+							<img src="__PUBLIC__/{$vo}" />
+						</li>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+			
+			<div class="proTitle">
+				<p>-Other products-</p>
+			</div>
+			<div class="proList">
+				 <div class="container">
+				 	<div class="row">
+						{volist name="other" id="v"}
+				 		<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0">
+				 			<div class="picBox">
+				 				<img src="__PUBLIC__/{$v.thumb}" class="img-responsive"/>
+				 				<div class="picOn">
+				 					<p>{$v.title}</p>
+				 					<a href="{:url('products2/productDetails')}?catid=21&id={$v.id}"><img src="__HOME__/img/right.png"  class="center-block"/></a>
+				 				</div>
+				 			</div>
+				 		</div>
+						{/volist}
+
+				 	</div>
+				</div>
+			</div>
+		</div>
+{/block}
+
+{block name="footer"}
+{include file="public2/footer2" /}
+{/block}

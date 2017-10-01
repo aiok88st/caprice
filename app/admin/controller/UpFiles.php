@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use think\Db;
 use think\Request;
 use think\Controller;
+use clt\Image;
 class UpFiles extends Common
 {
     public function upload(){

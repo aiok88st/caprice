@@ -44,5 +44,17 @@ class Products2 extends Common2{
         return $pArr;
     }
 
+    public function productDetails(){
+        $id = input('id');
+        $enarticle = db('enproduct');
+        $list = $enarticle->where('id',$id)->find();
+        $images = explode(';',rtrim($list['images'],';'));
+        $this->assign('images',$images);
+        $this->assign('list',$list);
+        $other = $enarticle->where('catid',$list['catid'])->order("listorder asc")->limit(3)->select();
+        $this->assign('other',$other);
+        return $this->fetch();
+    }
+
 
 }

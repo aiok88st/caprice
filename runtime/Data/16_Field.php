@@ -1,20 +1,24 @@
 <?php
 return array (
-  'catid' => 
+  'value' => 
   array (
-    'id' => 163,
-    'moduleid' => 1,
-    'field' => 'catid',
-    'name' => '栏目',
+    'id' => 184,
+    'moduleid' => 16,
+    'field' => 'value',
+    'name' => '值',
     'tips' => '',
-    'required' => 1,
+    'required' => 0,
     'minlength' => 0,
     'maxlength' => 0,
     'pattern' => 'defaul',
     'errormsg' => '',
-    'class' => 'catid',
-    'type' => 'catid',
-    'setup' => '',
+    'class' => 'value',
+    'type' => 'text',
+    'setup' => 'array (
+  \'default\' => \'\',
+  \'ispassword\' => \'0\',
+  \'fieldtype\' => \'varchar\',
+)',
     'ispost' => 0,
     'unpostgroup' => '',
     'listorder' => 0,
@@ -23,8 +27,8 @@ return array (
   ),
   'title' => 
   array (
-    'id' => 1,
-    'moduleid' => 1,
+    'id' => 179,
+    'moduleid' => 16,
     'field' => 'title',
     'name' => '标题',
     'tips' => '',
@@ -46,57 +50,10 @@ return array (
     'status' => 1,
     'issystem' => 1,
   ),
-  'contentdes' => 
-  array (
-    'id' => 175,
-    'moduleid' => 1,
-    'field' => 'contentdes',
-    'name' => '内容简介',
-    'tips' => '',
-    'required' => 0,
-    'minlength' => 0,
-    'maxlength' => 0,
-    'pattern' => 'defaul',
-    'errormsg' => '',
-    'class' => 'contentdes',
-    'type' => 'textarea',
-    'setup' => 'array (
-  \'fieldtype\' => \'text\',
-  \'default\' => \'\',
-)',
-    'ispost' => 0,
-    'unpostgroup' => '',
-    'listorder' => 3,
-    'status' => 1,
-    'issystem' => 0,
-  ),
-  'content' => 
-  array (
-    'id' => 6,
-    'moduleid' => 1,
-    'field' => 'content',
-    'name' => '内容',
-    'tips' => '',
-    'required' => 0,
-    'minlength' => 0,
-    'maxlength' => 0,
-    'pattern' => 'defaul',
-    'errormsg' => '',
-    'class' => 'content',
-    'type' => 'editor',
-    'setup' => 'array (
-  \'edittype\' => \'UEditor\',
-)',
-    'ispost' => 0,
-    'unpostgroup' => '',
-    'listorder' => 4,
-    'status' => 1,
-    'issystem' => 0,
-  ),
   'hits' => 
   array (
-    'id' => 2,
-    'moduleid' => 1,
+    'id' => 180,
+    'moduleid' => 16,
     'field' => 'hits',
     'name' => '点击次数',
     'tips' => '',
@@ -121,8 +78,8 @@ return array (
   ),
   'createtime' => 
   array (
-    'id' => 3,
-    'moduleid' => 1,
+    'id' => 181,
+    'moduleid' => 16,
     'field' => 'createtime',
     'name' => '发布时间',
     'tips' => '',
@@ -142,8 +99,8 @@ return array (
   ),
   'status' => 
   array (
-    'id' => 5,
-    'moduleid' => 1,
+    'id' => 183,
+    'moduleid' => 16,
     'field' => 'status',
     'name' => '状态',
     'tips' => '',
@@ -162,7 +119,7 @@ return array (
   \'labelwidth\' => \'75\',
   \'default\' => \'1\',
 )',
-    'ispost' => 0,
+    'ispost' => 1,
     'unpostgroup' => '',
     'listorder' => 98,
     'status' => 1,
@@ -170,8 +127,8 @@ return array (
   ),
   'template' => 
   array (
-    'id' => 4,
-    'moduleid' => 1,
+    'id' => 182,
+    'moduleid' => 16,
     'field' => 'template',
     'name' => '模板',
     'tips' => '',

@@ -22,7 +22,7 @@ class Index2 extends Common2{
         $this->assign('pArr',$pArr);
         //首页展会
         $art = db('enarticle');
-        $artArr = $art->where('status',2)->order('listorder asc')->limit(3)->select();
+        $artArr = $art->where('status',2)->where('catid',23)->order('listorder asc')->limit(3)->select();
         foreach($artArr as $k=>$v){
             $artArr[$k]['time'] = explode('-',date('Y-m-d',$v['createtime']));
         }

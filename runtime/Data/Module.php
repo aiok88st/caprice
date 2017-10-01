@@ -117,5 +117,18 @@ return array (
     'listorder' => 0,
     'status' => 1,
   ),
+  16 => 
+  array (
+    'id' => 16,
+    'title' => '产品参数模型',
+    'name' => 'parameter',
+    'description' => '产品参数',
+    'type' => 1,
+    'issystem' => 0,
+    'listfields' => '*',
+    'setup' => NULL,
+    'listorder' => 0,
+    'status' => 1,
+  ),
 );
 ?>
